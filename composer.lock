@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "414f9a432a28eb67079f9783df23f37d",
+    "content-hash": "a47986c29c2e1e2c202f1e8ecb943451",
     "packages": [
         {
             "name": "contenir/contenir-preview",
-            "version": "dev-feat/container",
+            "version": "0.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-preview.git",
-                "reference": "3a4cc5193cd59c1c1dbca28703c73659cc9a51a1"
+                "reference": "6d11419093dc26c12c813d2115772c8340163686"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-preview/zipball/3a4cc5193cd59c1c1dbca28703c73659cc9a51a1",
-                "reference": "3a4cc5193cd59c1c1dbca28703c73659cc9a51a1",
+                "url": "https://api.github.com/repos/contenir/contenir-preview/zipball/6d11419093dc26c12c813d2115772c8340163686",
+                "reference": "6d11419093dc26c12c813d2115772c8340163686",
                 "shasum": ""
             },
             "require": {
@@ -31,6 +31,7 @@
                 "infection/infection": "^0.35.6",
                 "phpunit/phpunit": "^11.5"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -49,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/contenir/contenir-preview/issues",
-                "source": "https://github.com/contenir/contenir-preview/tree/feat/container"
+                "source": "https://github.com/contenir/contenir-preview/tree/0.1.x"
             },
-            "time": "2026-10-18T00:22:59+00:00"
+            "time": "2026-10-18T01:29:59+00:00"
         },
         {
             "name": "fig/http-message-util",
@@ -5663,14 +5664,7 @@
             "time": "2021-04-19T16:34:45+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "contenir/contenir-preview",
-            "version": "dev-feat/container",
-            "alias": "0.1.x-dev",
-            "alias_normalized": "0.1.9999999.9999999-dev"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "contenir/contenir-preview": 20,
