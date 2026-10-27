@@ -118,6 +118,53 @@ request: as under PHP-FPM, not a long-running server that keeps services between
 5. As the response comes back, a preview gets the protocol's headers, replacing the page's own, and
    the badge before `</body>`.
 
+## Shared preview links
+
+An editor can also send a client a link to one record's draft, which opens behind a six-character
+code until the end the editor chose or until the CMS revokes it (§9 of the protocol). Turn it on
+with a `share` block, and pipe `ShareMiddleware` beside `PreviewMiddleware`:
+
+```php
+// config/autoload/preview.global.php
+'contenir_preview' => [
+    // ...
+    'share' => [],   // or ['adapter' => 'SiteDb']: the php-db adapter on the database the CMS keeps links in
+],
+```
+
+```php
+$app->pipe(BodyParamsMiddleware::class);
+$app->pipe(\Contenir\Preview\Mezzio\PreviewMiddleware::class);
+$app->pipe(\Contenir\Preview\Mezzio\ShareMiddleware::class);
+$app->pipe(RouteMiddleware::class);
+```
+
+Without the `share` block, `ShareMiddleware` leaves every request alone, so piping it is safe. The
+links live in the site database's `preview_share` table, which the CMS creates with
+contenir-preview's migration.
+
+A visit to `/preview/{id}` is answered before routing:
+
+| The visit                              | The answer                                                          |
+|----------------------------------------|---------------------------------------------------------------------|
+| No pass yet                            | `200`, a form asking for the code                                   |
+| The code posted, right                 | `303` back to the link, setting the pass cookie (`contenir_share`)  |
+| The code posted, wrong                 | `401`, the form again                                               |
+| Too many wrong codes                   | `429`                                                               |
+| A link that has ended or been revoked  | `404`                                                               |
+| With a pass                            | The record's page, rendered as a preview                            |
+
+A shared preview carries **no values**: the record shows as it is saved, whatever its status. So a
+path or route resolver that fills `{slug}` from the values can't place it. A shared section needs a
+resolver service that finds the page from the record's key, such as contenir-resource-mezzio's
+`WorkflowPageResolver`. `PreviewRequest::$shared` tells a client's visit from an editor's preview,
+for leaving it out of analytics, say.
+
+Every answer is `Cache-Control: no-store, private`, which a page cache that follows HTTP's rules
+never stores, and `frame-ancestors 'none'`. Wrong codes are counted where accepted tokens are
+remembered (`replay`), by the request's `REMOTE_ADDR`: behind a proxy that doesn't pass the visitor's
+address on, every visitor counts as one.
+
 ## Quality
 
 ```sh
