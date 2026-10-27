@@ -1,12 +1,12 @@
 {
     "name": "contenir/contenir-preview-mezzio",
-    "description": "Mezzio renderer for the Contenir preview protocol: answers the CMS's signed previews at /api/resource/preview by rendering the record's page with its unsaved values.",
+    "description": "Mezzio renderer for the Contenir preview protocol: answers the CMS's signed previews at /api/resource/preview by rendering the record's page with its unsaved values, and shared preview links at /preview/{id} behind a code.",
     "type": "library",
     "license": "MIT",
     "keywords": ["contenir", "cms", "preview", "mezzio", "psr-15"],
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
-        "contenir/contenir-preview": "0.1.x-dev",
+        "contenir/contenir-preview": "0.3.x-dev",
         "mezzio/mezzio": "^3.18",
         "mezzio/mezzio-router": "^3.17",
         "psr/container": "^1.1 || ^2.0",
@@ -33,6 +33,9 @@
     "extra": {
         "laminas": {
             "config-provider": "Contenir\\Preview\\Mezzio\\ConfigProvider"
+        },
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
         }
     },
     "scripts": {
@@ -53,5 +56,7 @@
         "platform": {
             "php": "8.3.99"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
