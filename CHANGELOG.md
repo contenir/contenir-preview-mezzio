@@ -30,3 +30,5 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 - Requires contenir-preview 0.3, with shared previews, and so
   `minimum-stability: dev` for php-db, which has no stable release yet.
+- `main` is aliased as `0.1.x-dev`, the version packages that require this
+  one name.

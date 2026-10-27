@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1114bf7d6e7e7a4d65ef92cf847f94c1",
+    "content-hash": "70c7d11e44cda8cd15e36abf2c46eeaa",
     "packages": [
         {
             "name": "contenir/contenir-preview",
-            "version": "dev-feat/share-links",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-preview.git",
-                "reference": "a09a969a959c498751f87ddfc9d3347b14d66083"
+                "reference": "f28f680f90dffa9e0423ada6a3ee6b1059fb6661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-preview/zipball/a09a969a959c498751f87ddfc9d3347b14d66083",
-                "reference": "a09a969a959c498751f87ddfc9d3347b14d66083",
+                "url": "https://api.github.com/repos/contenir/contenir-preview/zipball/f28f680f90dffa9e0423ada6a3ee6b1059fb6661",
+                "reference": "f28f680f90dffa9e0423ada6a3ee6b1059fb6661",
                 "shasum": ""
             },
             "require": {
@@ -36,6 +36,7 @@
                 "php-db/phpdb-sqlite": "0.3.x-dev",
                 "phpunit/phpunit": "^11.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -60,9 +61,9 @@
             ],
             "support": {
                 "issues": "https://github.com/contenir/contenir-preview/issues",
-                "source": "https://github.com/contenir/contenir-preview/tree/feat/share-links"
+                "source": "https://github.com/contenir/contenir-preview/tree/main"
             },
-            "time": "2026-10-27T04:55:31+00:00"
+            "time": "2026-10-27T08:11:29+00:00"
         },
         {
             "name": "contenir/contenir-site-token",
@@ -5858,14 +5859,7 @@
             "time": "2021-04-19T16:34:45+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "contenir/contenir-preview",
-            "version": "dev-feat/share-links",
-            "alias": "0.3.x-dev",
-            "alias_normalized": "0.3.9999999.9999999-dev"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "contenir/contenir-preview": 20,
